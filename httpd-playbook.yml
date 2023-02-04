@@ -1,0 +1,19 @@
+# My second playbook for httpd
+
+---
+- name: Apache httpd Playbook
+  hosts: webservers
+  become: true
+  tasks:
+   - name: Install httpd package
+     yum: name=httpd state=present
+   - name: Start httpd service
+     service: name=httpd state=started
+   - name: Copy html file from ACM local to hosts
+     copy: src=/home/ec2-user/index.html dest=/var/www/html
+     notify: Restart httpd service
+  handlers: 
+   - name: Restart httpd service
+     service: name=httpd state=restarted
+
+...
