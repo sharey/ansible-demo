@@ -1,0 +1,8 @@
+[webservers]
+172.31.84.187
+
+[appservers]
+52.87.156.81
+
+[other]
+ec2-52-87-156-81.compute-1.amazonaws.com
